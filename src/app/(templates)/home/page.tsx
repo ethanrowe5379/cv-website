@@ -1,16 +1,18 @@
+import { fetchContent } from "@/app/lib/Home/fetchContent";
+import Card from "../../../../Components/molecules/card";
+import {sql} from "@vercel/postgres"
 
 
-export default function Page(){
+
+export default async function Page(){
+    const pageContents = await fetchContent();
     return (
         <main>
-            <h2>Overview</h2>
-            <section>
-                <h3>About</h3>
-            </section>
-            <section>
-                <h3>Projects</h3>
-            </section>
-            
+            {
+                pageContents.map((items, index) => (
+                    <Card key={index} title={items.section} text={items.content}/>
+                ))
+            }
         </main>
     );
 };
