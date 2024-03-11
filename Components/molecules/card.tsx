@@ -9,7 +9,7 @@ export default function card({title, text, url}: {title: string, text: string, u
     return (
         <a href={url}>
         <section className="bg-slate-200 hover:bg-slate-100">
-            <SubTitle content={title}/>
+            <SubTitle content={title} css=""/>
             <p className="text-base">{text}</p>
         </section>
         </a>
