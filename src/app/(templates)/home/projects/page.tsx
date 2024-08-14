@@ -3,19 +3,18 @@
 import { fetchProjects } from "@/app/lib/Projects/fetchProjects";
 import { Octokit } from "octokit";
 import GitCard from "../../../../../Components/molecules/GitCard";
-import Title from "../../../../../Components/atoms/Title";
 
 export default async function Page(){
     const projects = await fetchProjects();
     return (
         <>
             <main>
-                <Title content="Github"/>
+                <h2 className={""}>/Projects/Github</h2>
                 <ol>
                 {
                     projects.map((items, index) => {
                         if(items.description == null){
-                            items.description = "Description Unavailable - View Readme.md in on github";
+                            items.description = "Description Unavailable - View Readme.md within github repo";
                         }
                         if(items.updated_at == null || items.updated_at == undefined){
                             items.updated_at = "Time Unavailable";
@@ -26,7 +25,7 @@ export default async function Page(){
                     })
                 }
                 </ol>
-                <p>Created using the Github API via Octokit</p>
+                <p className="text-sm">Created using the Github API via Octokit</p>
             </main>
         </>
     );

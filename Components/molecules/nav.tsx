@@ -7,10 +7,10 @@ import clsx from 'clsx';
 
 //Map of links of website
 const links = [
-    {key: 'home', name: 'Home', href: '/home'},
-    {key:'about', name: 'About', href: '/home/about'},
-    {key:'projects', name: 'Projects', href: '/home/projects'},
-    {key:'contact', name: 'Contact', href: '/home/contact'}
+    {key: 'home', name: '/Home', href: '/home'},
+    {key:'about', name: '/About', href: '/home/about'},
+    {key:'projects', name: '/Projects', href: '/home/projects'},
+    {key:'contact', name: '/Contact', href: '/home/contact'}
 ];
 
 export default function Nav(){
@@ -19,7 +19,7 @@ export default function Nav(){
         <nav className="">
             {links.map((link) => {
                 return (
-                    <Link className="font-medium text-slate-500 hover:text-blue-600 mr-5" key={link.key} href={link.href} ><p className="inline-block">{link.name}</p></Link>
+                    <Link className="font-medium mr-5" key={link.key} href={link.href} ><p className="text-xl inline-block">{link.name}</p></Link>
                 );
             }
             )}
